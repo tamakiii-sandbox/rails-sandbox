@@ -1,0 +1,20 @@
+version: "3.7"
+services:
+  rails:
+    image: rails:5.0.1
+    working_dir: /app
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/app
+
+  mysql:
+    image: mysql
+    volumes:
+      - mysql:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: rails
+      MYSQL_ROOT_PASSWORD: password
+
+volumes:
+  mysql:
