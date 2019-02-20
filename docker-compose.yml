@@ -1,7 +1,7 @@
 version: "3.7"
 services:
-  rails:
-    image: rails:5.0.1
+  ruby:
+    build: ./docker/ruby
     working_dir: /work
     ports:
       - 3000:3000
