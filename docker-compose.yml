@@ -1,8 +1,11 @@
 version: "3.7"
 services:
   ruby:
-    build: ./docker/ruby
+    build:
+      context: .
+      dockerfile: ./docker/ruby/Dockerfile
     working_dir: /work
+    entrypoint: rails server
     ports:
       - 3000:3000
     volumes:
