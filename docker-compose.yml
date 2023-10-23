@@ -1,0 +1,23 @@
+version: "3.7"
+services:
+  ruby:
+    build:
+      context: .
+      dockerfile: ./docker/ruby/Dockerfile
+    working_dir: /work
+    entrypoint: rails server
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/work
+
+  mysql:
+    image: mysql
+    volumes:
+      - mysql:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: rails
+      MYSQL_ROOT_PASSWORD: password
+
+volumes:
+  mysql:
